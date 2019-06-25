@@ -25,7 +25,6 @@ if __name__=="__main__":
                 pass
             ball.move(speed)
 
-        
         screen.fill((255,255,255))
         sprite.Group(ball).draw(screen)
 
