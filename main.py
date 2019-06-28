@@ -20,7 +20,7 @@ if __name__=="__main__":
     bs=[]
 
     g=sprite.Group()
-
+    g.add(ball)
     while 1:
         for i in event.get():
             if i.type==QUIT:
@@ -31,13 +31,15 @@ if __name__=="__main__":
             if i.type==MOUSEBUTTONDOWN:
                 spb=[(i.pos[0]-ball.rect.x)/10,(i.pos[1]-ball.rect.y)/10]
                 bu.speed=spb
+                bu.rect=ball.rect
+                g.add(bu)
             ball.move(speed)
             
             bu.go()
             
 
-        g.add(ball)
-        g.add(bu)
+        
+        
 
         if not((0<bu.rect[0])and(bu.rect[0]<480)and(0<bu.rect[1])and(bu.rect[1]<480)):
             g.remove(bu)
