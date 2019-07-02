@@ -17,6 +17,8 @@ class Ball(sprite.Sprite):
 
     def shoot():
         pass
+    def display(self,a):
+        self.image=transform.rotate(self.image,a)
 
 class Bullent(sprite.Sprite):
     def __init__(self,img="b.png",speed=(0,0)):

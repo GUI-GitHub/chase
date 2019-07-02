@@ -1,5 +1,6 @@
 from pygame import *
 from util import *
+import math
 
 init()
 screen=display.set_mode([10*48+1,10*48+1],0,32)
@@ -21,6 +22,7 @@ if __name__=="__main__":
 
     g=sprite.Group()
     g.add(ball)
+    
     while 1:
         for i in event.get():
             if i.type==QUIT:
@@ -28,11 +30,15 @@ if __name__=="__main__":
             if i.type==MOUSEMOTION:
                 #print(ball.rect)
                 speed=[(i.pos[0]-ball.rect.x)/10,(i.pos[1]-ball.rect.y)/10]
+            
             if i.type==MOUSEBUTTONDOWN:
                 spb=[(i.pos[0]-ball.rect.x)/10,(i.pos[1]-ball.rect.y)/10]
                 bu.speed=spb
                 bu.rect=ball.rect
                 g.add(bu)
+            
+            
+            ball.display()
             ball.move(speed)
             
             bu.go()
